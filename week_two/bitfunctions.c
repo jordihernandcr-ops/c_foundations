@@ -13,6 +13,8 @@ void clearbits_MSBtoIth_inclusive(int* num, int i);
 void clearbits_IthroughLSB(int* num, int i);
 void pack_single_bit_register(int* num, int i, int value); 
 void pack_multi_bit_register(int* num, int i, int width, int value);
+// void unpack_single_bit_register
+// void unpack_multi_bit_register
 void clear_bit(int* num, int i);
 int check_bit(const int num, int i);
 
@@ -84,7 +86,7 @@ then we AND with our number to mask. e.g:
 */
 void clearbits_IthroughLSB(int *num, int i){
     int mask = ((-1 << i));
-    *num = (*num & mask);
+    *num = (*num & mask); 
 }
 
 
@@ -116,4 +118,14 @@ void pack_multi_bit_register_clean(int* num, int i, int width, int value){
     int field_mask = ((1 << width) - 1); // essentially creates i-1 bits, so if width is 3, we get 0, 1, 2 set bits. total = 3! since it is 0 starting index, and ith gets cleared.
     *num &= ~(field_mask << i); // after our cascaded 1s and cleared MSB to i bits, we can invert this and shift to clear the respective register with correct width
     *num |= ((value & field_mask) << i); // now we can AND our value and field_mask together. doing it this way prevents us from ANDing with wrong field_mask and safeguards by preventing other bits from being accessed by clearing all other bits except the ones we care about. we then shift and OR to set.
+}
+
+
+void toggle_bit(int *num, int index){
+    int value = (*num >> index) & 1; //clears all bits except the one we care about 
+    if(value){
+        *num = (~(1 << index)) & *num; //clear the bit
+    }else{  // set the bit 
+        *num = ((1 << index)) | *num;
+    }
 }

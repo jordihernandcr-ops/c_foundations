@@ -38,6 +38,7 @@ int number_of_1_bits(const int num){
     return output;
 }
 
+// Check bit isolates a single bit and checks if it's 0 or 1
 bool check_bit(const int num, int i){
     int checker = (1 << i) & num;
     if(checker > 0){
