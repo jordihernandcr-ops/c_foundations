@@ -28,7 +28,7 @@ and then combine those partial results — and you're guaranteed to get the exac
 
 PATTERN: XOR cancels matching pairs, isolates unamtched - for this problem : matched against a generated range, 
 
-/
+*/
 int missingNumber(int* nums, int numsSize);
 int missingNumberXOR(int* nums, int numsSize);
 
