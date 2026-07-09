@@ -13,6 +13,8 @@ Example 3:
 Input: n = 2147483645
 Output: 30
 Explanation:The input binary string 1111111111111111111111111111101 has a total of thirty set bits.*/
+
+//YELLOW! I understood the constraints, easy isolate bit & with 1 to get value, increment count and divide number by 2 by doing a right shift until number is <= 0
 #include <stdio.h>
 
 int number_of_1_bits(const int num);
@@ -25,6 +27,7 @@ int main(void){
     return 0;
 }
 
+// checks every bit by isolating bits, and then clearing the LSB, eventually checking all bits. 
 int number_of_1_bits(const int num){
     int value = num;
     int output = 0;

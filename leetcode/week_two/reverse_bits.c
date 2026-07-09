@@ -2,6 +2,9 @@
 constraints: 0 <= n <= 2^31-2
 n is even Input: n = 43261596
 Output: 964176192*/
+
+//STATUS: YELLOW! Needed help understanding what the problem was originally asking. Took some time to understand decrementing/incrementing aspect.
+// needed hint 
 #include <stdint.h>
 #include <stdio.h>
 

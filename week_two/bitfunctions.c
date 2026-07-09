@@ -6,6 +6,8 @@ packing means to take individual values and combine them into a single integer -
 unpacking = extracting individual values back out from that integer -> i.e masking out bits we want and shifting them right to extract them. 
 */
 
+// yellow! Need to review important concepts!
+
 #include <stdio.h>
 
 void set_bit(int* num, int value, int i);
